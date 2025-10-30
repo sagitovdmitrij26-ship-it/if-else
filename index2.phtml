@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Задание:</h2>
+    <p> Разработайте функцию aggregationData() с объявленными типами аргументов и возвращаемого значения,
+        принимающую в качестве аргумента массив целых чисел.
+        $mas = [4, 5, 1, 4, 7, 8, 15, 6, 71, 45, 2];
+        Результатом работы функции должен быть массив, содержащий три элемента:
+        max — наибольшее число, min — наименьшее число, avg — среднее арифметическое всех чисел массива.
+        не использовать цикл!
+    </p>
+    <h2>Решение:</h2>
+    <p>
+    <pre><code>
+    $mas = [4, 5, 1, 4, 7, 8, 15, 6, 71, 45, 2];
+
+function aggregationData(array $mas)
+{
+    return [
+        'max' => max($mas),
+        'min' => min($mas),
+        'avg' => array_sum($mas) / count($mas),
+    ];
+}
+$result = aggregationData($mas);
+echo "[" . implode(", ", $result) . "]";
+</code></pre>
+    </p>
+    <h2>Результат выполнения кода:</h2>
+    <?php
+
+    $mas = [4, 5, 1, 4, 7, 8, 15, 6, 71, 45, 2];
+    function aggregationData(array $mas)
+    {
+        return [
+            'max' => max($mas),
+            'min' => min($mas),
+            'avg' => array_sum($mas) / count($mas),
+        ];
+    }
+    $result = aggregationData($mas);
+    echo "[" . implode(", ", $result) . "]";
+    ?>
+
+</body>
+
+</html>

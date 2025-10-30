@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Задание:</h2>
+    <p> . Используя mt_rand, сгенерируйте массив размером 100 элементов так,
+        чтобы все элементы были в диапазоне от 1 до 200 УНИКАЛЬНЫЕ. <br>
+        1. Используйте цикл. <br>
+        2. Используйте только функции работы с массивами <br>
+    </p>
+    <h2>Решение:</h2>
+    <p>
+    <pre><code>
+    //1. Задание для работы с циклом
+    $uniqueNumbers = []; //переменная для результата 
+while (count($uniqueNumbers) < 100) {
+    $number = mt_rand(1, 200);
+    if (!in_array($number, $uniqueNumbers)) {
+        $uniqueNumbers[] = $number;
+    }
+}
+echo "[" . implode(", ", $uniqueNumbers) . "]";
+
+//2. Задание с использованием функции работы с массивами
+$rangeOfNumber = range(1, 200); //зададим массив с помощью range в диапазоне от 1 до 200
+shuffle($rangeOfNumber); //перемешаем случайным образом исходный массив с помощью shuffle
+$partArray = array_chunk($rangeOfNumber, 100);// делим массив на 2 части по 100 элементов
+echo "[" . implode(", ", $partArray[0]) . "]"; // выводим первую часть массива
+</code></pre>
+    </p>
+    <h2>Результат выполнения кода:</h2>
+    <?php
+    /*3. Используя mt_rand, сгенерируйте массив размером 100 элементов так,
+     чтобы все элементы были в диапазоне от 1 до 200 УНИКАЛЬНЫЕ
+    Используйте цикл.
+    *Используйте только функции работы с массивами*/
+    //1. Задание для работы с циклом
+    $uniqueNumbers = []; //переменная для результата 
+    while (count($uniqueNumbers) < 100) {
+        $number = mt_rand(1, 200);
+        if (!in_array($number, $uniqueNumbers)) {
+            $uniqueNumbers[] = $number;
+        }
+    }
+    echo "[" . implode(", ", $uniqueNumbers) . "]\n";
+
+    //2. Задание с использованием функции работы с массивами
+    $rangeOfNumber = range(1, 200); //зададим массив с помощью range в диапазоне от 1 до 200
+    shuffle($rangeOfNumber); //перемешаем случайным образом исходный массив с помощью shuffle
+    $partArray = array_chunk($rangeOfNumber, 100);// делим массив на 2 части по 100 элементов
+    echo "[" . implode(", ", $partArray[0]) . "]"; // выводим первую часть массива
+    ?>
+</body>
+
+</html>

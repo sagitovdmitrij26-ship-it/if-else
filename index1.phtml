@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Задание:</h2>
+    <p> Подготовьте массив целых чисел (4, 5, 1, 4, 7, 8, 15, 6, 71, 45, 2)
+        Сделайте функцию, которая по этому массиву вернет новый массив, в котором каждое значение
+        будет заменено строкой "четное" или "не четное". <br>
+        1. Сделать через цикл <br>
+        2. *Сделать через array_map <br>
+    </p>
+    <h2>Решение:</h2>
+    <p>
+    <pre><code>
+        $array=[4, 5, 1, 4, 7, 8, 15, 6, 71, 45, 2]; //исходный массив
+// 1. выполнение через цикл:
+//зададим функцию evenOdd()
+function evenOdd($array) {
+    $result = [];
+    for ($i = 0; $i < count($array); $i++) {
+        if ($array[$i] % 2 == 0) {
+            $result[] = "четное";
+        } else {
+            $result[] = "нечетное";
+        }
+    }
+    return $result;
+}
+$result = evenOdd($array);
+
+//Используем функцию implode чтобы элементы в новом массив объединить в строку.
+echo "[" . implode(", ", $result) . "]\n";
+
+//2. выполнение через array_map
+function evenOdd2($mean){
+    return ($mean % 2 == 0) ? "четное" : "нечетное";
+}
+$array2=[4, 5, 1, 4, 7, 8, 15, 6, 71, 45, 2];
+$newArray = array_map('evenOdd2', $array2 );
+echo "[" . implode (", ", $newArray) . "]";
+</code></pre>
+    </p>
+    <h2>Результат выполнения кода:</h2>
+    <?php
+    /*1. Подготовьте массив целых чисел (4, 5, 1, 4, 7, 8, 15, 6, 71, 45, 2)
+    Сделайте функцию, которая по этому массиву вернет новый массив, в котором каждое значение
+    будет заменено строкой "четное" или "не четное". ["четное", "не четное"...] evenOdd()
+    Сделать через цикл
+    *Сделать через <array_map></array_map>*/
+    $array = [4, 5, 1, 4, 7, 8, 15, 6, 71, 45, 2]; //исходный массив
+// 1. выполнение через цикл:
+//зададим функцию evenOdd()
+    function evenOdd($array)
+    {
+        $result = [];
+        for ($i = 0; $i < count($array); $i++) {
+            if ($array[$i] % 2 == 0) {
+                $result[] = "четное";
+            } else {
+                $result[] = "нечетное";
+            }
+        }
+        return $result;
+    }
+    $result = evenOdd($array);
+
+    //Используем функцию implode чтобы элементы в новом массив объединить в строку.
+    echo "[" . implode(", ", $result) . "]\n";
+
+    //2. выполнение через <array_map></array_map>
+    function evenOdd2($mean)
+    {
+        return ($mean % 2 == 0) ? "четное" : "нечетное";
+    }
+    $array2 = [4, 5, 1, 4, 7, 8, 15, 6, 71, 45, 2];
+    $newArray = array_map('evenOdd2', $array2);
+    echo "[" . implode(", ", $newArray) . "]";
+    ?>
+</body>
+
+</html>
